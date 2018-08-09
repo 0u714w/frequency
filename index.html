@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+</head>
+
+<body>
+    <textarea rows="15" cols="60" id="textInput"></textarea><br>
+    <button id="countButton">Count Frequencies</button>
+    <div id="lettersDiv"></div>
+    <div id="wordsDiv"></div>
+
+
+    <script>
+        document.getElementById("countButton").onclick = function() {
+            // your code will go here ...
+
+
+            letterCounts = {};
+            var typedText = document.getElementById("textInput").value;
+            typedText = typedText.toLowerCase();
+            typedText = typedText.replace(/[^a-z'\s]+/g, "");
+            for (let i = 0; i < typedText.length; i++) {
+                currentLetter = typedText[i];
+
+
+                // do something for each letter. 
+
+
+                if (letterCounts[currentLetter] === undefined) {
+                    letterCounts[currentLetter] = 1;
+                } else {
+                    letterCounts[currentLetter]++;
+                }
+            }
+
+            for (letter in letterCounts) {
+                let span = document.createElement("span");
+                let textContent = document.createTextNode('"' + letter + "\": " + letterCounts[letter] + ", ");
+                span.appendChild(textContent);
+                document.getElementById("lettersDiv").appendChild(span);
+
+                wordCounts = {};
+
+
+                for (word in wordCounts) {
+                    let span = document.createElement("span");
+                    let textContent = document.createTextNode('"' + word + "\": " + wordCounts[word] + ", ");
+                    span.appendChild(textContent);
+                    document.getElementById("lettersDiv").appendChild(span)
+                    words = typedText.split(/\s/);
+
+
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+    </script>
+</body>
+
+</html>
